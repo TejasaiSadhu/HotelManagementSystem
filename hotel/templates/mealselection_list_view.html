@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>HMS | Meals Selected</title>
+		<!--main stylesheet -->
+		<script src="https://kit.fontawesome.com/692189991f.js" crossorigin="anonymous"></script>
+		<!--main stylesheet -->
+		<link rel="stylesheet" href="{% static 'hotel/css/mealselection_list_view.css' %}">
+    </head>
+    <body>
+        <div class="content">
+            <div class="header">
+                <div class="headings">
+                    <h1>Meals Selected</h1>
+                    <h2>Welcome, Dear {{ user }}</h2>
+                </div>
+                <div class="home">
+                    <!--Div 1: Back to home-->
+                    <div class="home">
+                        <a href="{% url 'MealListView' %}"><i class="fas fa-arrow-alt-circle-left">Back</i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mealselections">
+                {% for mealselection in mealselection_list %}
+                <div class="mealselection">
+                    <img src="https://images.unsplash.com/photo-1543137158-526f3507f08d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                    <div class="category">
+                        <h2>Category: {{ mealselection.get_meal_category }}</h2>
+                    </div>
+                    <div class="from">
+                        <h3>Name: {{ mealselection.meal.meal_name }} </h3>
+                    </div>
+                    <div class="from">
+                        <h3>Price: {{ mealselection.mealcharge.meal_charge }} KES/- </h3>
+                    </div>
+                    <div class="to">
+                        <h3>Date: {{ mealselection.meal_date }} </h3>
+                    </div> 
+                    <div class="cancel">
+                        <a href="#" class="invisible"><i class="far fa-2x fa-times-circle">Cancel Meal</i></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

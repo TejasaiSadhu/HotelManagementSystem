@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HMS | Room Detail</title>
+        <script src="https://kit.fontawesome.com/692189991f.js" crossorigin="anonymous"></script>
+		<!--main stylesheet -->
+		<link rel="stylesheet" href="{% static 'hotel/css/room_detail_view.css' %}">
+	</head>
+	<body> 
+        <p style="text-align: right;">Logged in as {{ self }}</p>
+		<!-- main content -->
+		<div class="content">
+            
+            <!--Rom Image-->
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1598035409965-d88b381d6ce0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+            </div>
+
+            <!--Room Details-->
+            <div class="room">
+
+                <!--Div 1 Back to Home-->
+                <div class="home">
+                     <a href="{% url 'RoomListView' %}"><i class="fas fa-arrow-alt-circle-left">Back</i></a>
+                </div>
+
+                <!--Div 2 Room Information-->
+                <div class="room-info">
+                    <h1>{{ room_category }}</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adispicing elit. Commodi</p>
+                </div>
+
+                <!--Div 3 Room Booking Form-->
+                <form id="booking-form" action="" method="POST">
+                    {% csrf_token %}
+
+                    <!--Input Div-->
+                    <div class="input-div">
+                        <label for="id_check_in">Check In : </label>
+                        <input type="datetime-local" id="id_check_in" name="check_in">
+                    </div>
+                    <!--Input Div-->
+                    <div class="input-div">
+                        <label for="id_check_out">Check Out : </label>
+                        <input type="datetime-local" id="id_check_out" name="check_out">
+                    </div>
+                    <!--Input Div-->
+                    <div class="input-div"> 
+                        <button type="submit">Book Room</button>
+                    </div>
+                </form>
+            </div>
+		</div>  
+	</body>
+</html>

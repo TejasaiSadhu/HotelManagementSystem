@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Room Detail</title>
+        <script src="https://kit.fontawesome.com/692189991f.js" crossorigin="anonymous"></script>
+		<!--main stylesheet -->
+		<link rel="stylesheet" href="{% static 'hotel/css/room_detail_view.css' %}">
+	</head>
+	<body> 
+		<!-- main content -->
+		<div class="content">
+            
+            <!--Rom Image-->
+            <div class="image">
+                <img src="https://images.unsplash.com/photo-1597314040740-5836f612a030?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+            </div>
+
+            <!--Room Details-->
+            <div class="room">
+
+                <!--Div 1 Back to Home-->
+                <div class="home">
+                     <a href="{% url 'BookingListView' %}"><i class="fas fa-arrow-alt-circle-left">Back</i></a>
+                </div>
+
+                <!--Div 2 Room Information-->
+                <div class="room-info">
+                    <h1>{{ room_category }}</h1>
+                    <p>Lorem ipsum dolor sit, amet consectetur adispicing elit. Commodi</p>
+                </div>
+
+                <!--Div 3 Room Booking Form-->
+                <form id="booking-form" action="" method="POST">
+                    {% csrf_token %}
+                    <h2>Are you sure you want to cancel the booking? </h2>
+                    <p>Details:</p>
+                    <p>Room No: {{ booking.room.number }} </p>
+                    <p>Type: {{ booking.get_room_category }} </p>
+                    <h3>{{ booking }}</h3>
+                    <!--Input Div-->
+                    <div class="input-div"> 
+                        <button type="submit">Cancel The Booking</button>
+                    </div>
+                </form>
+ 
+            </div>
+		</div>  
+	</body>
+</html>

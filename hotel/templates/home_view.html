@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>HMS | Home</title>
+		<!--main stylesheet -->
+		<link rel="stylesheet" href="{% static 'hotel/css/home_view.css' %}">
+	</head>
+	<body>
+		<!-- brand -->
+		<h1 id="brand">Hotel System</h1>
+
+		<a href="accounts/profile/"><h2 style="text-align: right;">Profile</h2></a>
+		<a href="{% url 'PaymentListView' %}"><h2 style="text-align: right;">Payments</h2></a>
+		<a href="accounts/logout/"><h4 style="text-align: right;">Logout</h4></a>
+		<!-- main content -->
+		<div class="content">
+
+			<div class="room">
+				<a href="{% url 'RoomListView' %}">
+					<img 
+					src="https://images.unsplash.com/photo-1590675560125-0d832b9d719e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" >
+					<h2>Rooms</h2>
+					<p>Lorem ipsum dolor sit, amet consectetur adispicing elit. Commodi</p>
+				</a>
+			</div>
+
+			<div class="room">
+				<a href="{% url 'MealListView' %}">
+					<img 
+					src="https://images.unsplash.com/photo-1598614756727-66f0fc8db1e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" >
+					<h2>Meals</h2>
+					<p>Lorem ipsum dolor sit, amet consectetur adispicing elit. Commodi</p>
+				</a>
+			</div>
+
+			<div class="room">
+				<a href="{% url 'ServiceListView' %}">
+					<img 
+					src="https://images.unsplash.com/photo-1551133990-70307d02dc94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" >
+					<h2>Room Services</h2>
+					<p>Lorem ipsum dolor sit, amet consectetur adispicing elit. Commodi</p>
+				</a>
+			</div>
+ 
+		</div>  
+	</body>
+</html>

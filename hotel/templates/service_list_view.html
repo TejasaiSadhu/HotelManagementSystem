@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>HMS | Room Services</title>
+		<!--main stylesheet -->
+		<link rel="stylesheet" href="{% static 'hotel/css/service_list_view.css' %}">
+	</head>
+	<body>
+		<!-- brand -->
+		<h1 id="brand">Room Services</h1>
+		<p style="text-align: right;">Logged in as {{ self }}</p>
+		<br>
+		<div class="home">
+			<a href="{% url 'HomeView' %}"><i class="fas fa-arrow-alt-circle-left">Home</i></a>
+	   </div>
+	   <h2><a href="{% url 'ServiceSelectionList' %}">View Selected Services</a></h2>
+
+		<!-- main content -->
+		<div class="content">
+			{% for service_category, service_url in service_list %} 
+			<div class="service">
+				<a href="{{ service_url }}">
+					<img 
+					src="https://images.unsplash.com/photo-1580842402762-6f5868c17412?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" >
+					<h2>{{ service_category }}</h2>
+					<p>Lorem ipsum dolor sit, amet consectetur adispicing elit. Commodi</p>
+				</a>
+			</div>   
+			{% endfor %}
+		</div>  
+	</body>
+</html>
